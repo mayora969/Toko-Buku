@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.logo img{
+	width: 60px;
+}
+
+body {
+  background-color: white;
+}
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 30px;
+  background-color: black;
+}
+.auth .btn {
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.auth .red {
+  background-color: rgb(255, 0, 157);
+}
+
+.auth .blue {
+  background-color: rgb(116, 30, 255);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: black;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.auth .btn {
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.auth .red {
+  background-color: rgb(255, 0, 179);
+}
+
+.auth .blue {
+  background-color: rgb(30, 144, 255);
+}
+
+.navbar {
+  background-color:goldenrod;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  list-style: none;
+}
+
+.menu li {
+  margin: 0 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.menu a:hover {
+  background-color: darkgreen;
+  border-radius: 4px;
+}
+
+.img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+}
+
+.book-cover {
+	width: 100px;
+	margin: auto;
+}
+
+.book-cover{
+	max-width: 50%;
+	height: auto;
+}

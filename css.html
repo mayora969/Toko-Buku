@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Seller Buku & Majalah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background: #6c5ce7;
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Honoverer Store</h1>
+    <p>toko terbaik hanya dikami</p>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <img src="https://gudang.intelegensia.com/assets/uploads/0b240f73491ec7b870c4a6546a5391e3.jpg" alt="Buku 1">
+        <div class="card-body">
+          <div class="card-title">teknik dasar informatika tahap 1</div>
+          <div class="card-desc">teknik dasar informatika yang mudah dipahami oleh semua kalangan.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://png.pngtree.com/png-clipart/20200709/original/pngtree-blue-stylish-magazine-cover-png-image_3593212.jpg" alt="Cover Buku" alt="Majalah 1">
+        <div class="card-body">
+          <div class="card-title">Modern Business</div>
+          <div class="card-desc">Informasi singkat tentang majalah ini.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-loytu06ybmnu2a" alt="Buku 2">
+        <div class="card-body">
+          <div class="card-title">Pengembangan kreatifitas dan inovasi</div>
+          <div class="card-desc">menambah kreatifitas dan inovasi dalam berbisnis atau praktikum..</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://cvalfabeta.com/wp-content/uploads/2019/08/Dasar-dasar-Logika-New.jpg"alt="buku 3">
+        <div class="card-body">
+            <div class="card-tittle">dasar-dasar logika</div>
+            <div class="card-desc">sebuah langkah awal untuk berpikir secara logika.</div>
+        </div>
+
+      
+    </div>
+  </div>
+
+</body>
+</html>

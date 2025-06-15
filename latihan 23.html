@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Belajar Navigasi</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    .topbar {
+      background: rgb(128, 73, 0);
+      padding: 10px 30px;
+      text-align: right;
+    }
+
+    .topbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 14px;
+    }
+
+    .topbar .regis {
+      background-color: rgb(100, 128, 0);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 0.5rem;
+    }
+
+    .topbar .login {
+      background-color: rgb(128, 119, 0);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 0.5rem;
+    }
+
+    .navbar {
+      background: rgb(126, 128, 0);
+      padding: 10px 30px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+    }
+
+    .menu li {
+      margin-right: 15px;
+    }
+
+    .menu li a {
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px 15px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .card img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="..." class="regis">Registrasi</a>
+  <a href="..." class="login">Login</a>
+</div>
+
+<table width="100%" cellpadding="10">
+  <tr>
+    <td>
+      <img src="https://drumcreative.com/wp-content/uploads/2022/03/after-logo-hanover-small-768x640.jpg" width="160" height="160" style="vertical-align: middle;">
+      <span style="font-size: 50px; font-family:sans-serif; color: rgb(0, 98, 128); font-weight: bold;">HONOVERER STORE</span>
+    </td>
+  </tr>
+</table>
+
+<hr>
+
+<nav class="navbar">
+  <div class="container">
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Buku</a></li>
+      <li><a href="#">Majalah</a></li>
+      <li><a href="#">Koran</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="grid">
+    <div class="card">
+      <img src="https://gudang.intelegensia.com/assets/uploads/0b240f73491ec7b870c4a6546a5391e3.jpg" alt="Buku 1">
+      <div class="card-body">
+        <div class="card-title">Teknik Dasar Informatika Tahap 1</div>
+        <div class="card-desc">Teknik dasar informatika yang mudah dipahami oleh semua kalangan.</div>
+        <div>harga =35000</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://png.pngtree.com/png-clipart/20200709/original/pngtree-blue-stylish-magazine-cover-png-image_3593212.jpg" alt="Majalah 1">
+      <div class="card-body">
+        <div class="card-title">Modern Business</div>
+        <div class="card-desc">Informasi singkat tentang majalah ini.</div>
+        <div>harga =30000</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-loytu06ybmnu2a" alt="Buku 2">
+      <div class="card-body">
+        <div class="card-title">Pengembangan Kreatifitas & Inovasi</div>
+        <div class="card-desc">Menambah kreatifitas dan inovasi dalam berbisnis atau praktikum.</div>
+        <div>harga=25000</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cvalfabeta.com/wp-content/uploads/2019/08/Dasar-dasar-Logika-New.jpg" alt="Buku 3">
+      <div class="card-body">
+        <div class="card-title">Dasar-Dasar Logika</div>
+        <div class="card-desc">Sebuah langkah awal untuk berpikir secara logika.</div>
+        <div>haaga =40000</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+</body>
+</html>
