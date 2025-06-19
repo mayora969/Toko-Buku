@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Novel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      color: navy;
+      margin-top: 30px;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 30px;
+    }
+    .card {
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      width: 180px;
+      padding: 10px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .price {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .button {
+      background-color: navy;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: darkblue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Novel</h1>
+  <div class="container">
+    <div class="card">
+      <img src="https://th.bing.com/th/id/OIP.pRmqBIV7tGs-BRBMgg2RHAAAAA?rs=1&pid=ImgDetMain&cb=idpwebpc2" alt="Belajar Dasar Komputer">
+      <button class="button">Detail</button>
+      <div class="price">Rp89.000</div>
+    </div>
+    <div class="card">
+      <img src="https://deepublishstore.com/wp-content/uploads/2018/11/Jaringan-Komputer-Wire-dan-Wireless-beserta-Penerapannya_Herman-depan-scaled-1.jpg" alt="Teknologi Komputer Modern">
+      <button class="button">Detail</button>
+      <div class="price">Rp71.200</div>
+    </div>
+    <div class="card">
+      <img src="https://th.bing.com/th/id/OIP.OqU8APOyd_iqd0GUxMWQ-QHaLW?rs=1&pid=ImgDetMain&cb=idpwebpc2" alt="Ilmu Pengetahuan Alam">
+      <button class="button">Detail</button>
+      <div class="price">Rp94.500</div>
+    </div>
+    <div class="card">
+      <img src="https://cdn.kobo.com/book-images/e354f3eb-d7f8-4339-9c95-f6b1885bad7d/1200/1200/False/naruto-vol-1.jpg" alt="naruto naruto-vol-1">
+      <button class="button">Detail</button>
+      <div class="price">Rp71.200</div>
+    </div>
+  </div>
+</body>
+</html>
