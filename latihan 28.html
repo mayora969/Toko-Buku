@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>HONOVERER STORE</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f2f2f2;
+    }
+
+    .topbar {
+      background: rgb(128, 73, 0);
+      padding: 10px 30px;
+      text-align: right;
+    }
+
+    .topbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .topbar .regis {
+      background-color: rgb(100, 128, 0);
+      padding: 5px 10px;
+      border-radius: 0.5rem;
+    }
+
+    .topbar .login {
+      background-color: rgb(128, 119, 0);
+      padding: 5px 10px;
+      border-radius: 0.5rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px 30px;
+      background-color: rgb(248, 247, 247);
+    }
+
+    header img {
+      width: 160px;
+      height: 160px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 40px;
+      color: rgb(0, 98, 128);
+      font-weight: bold;
+    }
+
+    hr {
+      margin: 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+
+    .navbar {
+      background: rgb(126, 128, 0);
+      padding: 10px 30px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+    }
+
+    .menu li {
+      position: relative;
+      margin-right: 15px;
+    }
+
+    .menu li a {
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+
+    .menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      z-index: 1000;
+      min-width: 150px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .menu li:hover > .submenu {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .submenu li a {
+      color: black;
+      padding: 10px;
+    }
+
+    .submenu li a:hover {
+      background-color: #ddd;
+    }
+
+    .submenu .submenu {
+      left: 100%;
+      top: 0;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin: 30px 0 20px;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px 15px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button, .buy-button {
+      padding: 8px 15px;
+      background-color: rgb(0, 98, 128);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .button:hover, .buy-button:hover {
+      background-color: rgb(0, 80, 105);
+    }
+
+    .price {
+      font-weight: bold;
+      color: #00008B;
+    }
+
+    .sinopsis {
+      display: none;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .card img {
+        height: 150px;
+      }
+    }
+
+    /* Modal Style */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color: #004466;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .modal-content button {
+      width: 100%;
+      padding: 10px;
+      background-color: rgb(0, 98, 128);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: rgb(0, 80, 105);
+    }
+
+    .close {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a onclick="openModal('modalRegis')" class="regis">Registrasi</a>
+    <a onclick="openModal('modalLogin')" class="login">Login</a>
+  </div>
+
+  <header>
+    <img src="https://drumcreative.com/wp-content/uploads/2022/03/after-logo-hanover-small-768x640.jpg" alt="Logo HONOVERER">
+    <h1>HONOVERER STORE</h1>
+  </header>
+
+  <hr>
+ 
+  <!-- (navigasi + konten kartu tetap sama seperti sebelumnya) -->
+
+  <!-- Modal Registrasi -->
+  <div id="modalRegis" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalRegis')">&times;</span>
+      <h2>Form Registrasi</h2>
+      <form>
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Daftar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Login -->
+  <div id="modalLogin" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalLogin')">&times;</span>
+      <h2>Form Login</h2>
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+
+  <script>
+    function filterCategory(category) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function searchCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleSinopsis(button) {
+      const sinopsis = button.parentElement.querySelector('.sinopsis');
+      sinopsis.style.display = sinopsis.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function openModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    // Optional: close modal when clicking outside content
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    }
+  </script>
+  <nav class="navbar">
+    <div class="container">
+      <ul class="menu">
+        <li><a onclick="filterCategory('all')">Home</a></li>
+        <li>
+          <a href="#">Buku</a>
+          <ul class="submenu">
+            <li>
+              <a href="#">Fiksi</a>
+              <ul class="submenu">
+                <li><a onclick="filterCategory('komputer')">Komputer</a></li>
+                <li><a onclick="filterCategory('science')">Science</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Non Fiksi</a>
+              <ul class="submenu">
+                <li><a onclick="filterCategory('novel')">Novel</a></li>
+                <li><a onclick="filterCategory('komik')">Komik</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Majalah</a>
+          <ul class="submenu">
+            <li><a onclick="filterCategory('majalah-fiksi')">BoBo</a></li>
+            <li><a onclick="filterCategory('majalah-fiksi')">Glorius Queen Rises</a></li>
+            <li><a onclick="filterCategory('majalah-nonfiksi')">Soekarno Sang Guru Bangsa</a></li>
+            <li><a onclick="filterCategory('majalah-nonfiksi')">Sebuah Seni untuk Bersikap Bodo Amat</a></li>
+          </ul>
+        </li>
+        <li><a onclick="filterCategory('koran')">Koran</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="searchInput" onkeyup="searchCards()" placeholder="Cari produk...">
+    </div>
+
+    <div class="grid">
+
+      <div class="card" data-category="komputer">
+        <img src="https://th.bing.com/th/id/OIP.pRmqBIV7tGs-BRBMgg2RHAAAAA?rs=1&pid=ImgDetMain&cb=idpwebpc2" alt="Belajar Dasar Komputer">
+        <div class="card-body">
+          <button class="button" onclick="toggleSinopsis(this)">Detail</button>
+          <a href="#" class="buy-button">Beli Sekarang</a>
+          <div class="price">Rp89.000</div>
+          <div class="sinopsis">Buku ini membahas dasar-dasar komputer, cocok untuk pemula yang ingin memahami perangkat keras dan lunak.</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="komputer">
+        <img src="https://deepublishstore.com/wp-content/uploads/2018/11/Jaringan-Komputer-Wire-dan-Wireless-beserta-Penerapannya_Herman-depan-scaled-1.jpg" alt="Teknologi Komputer Modern">
+        <div class="card-body">
+          <button class="button" onclick="toggleSinopsis(this)">Detail</button>
+          <a href="#" class="buy-button">Beli Sekarang</a>
+          <div class="price">Rp71.200</div>
+          <div class="sinopsis">Menjelaskan perkembangan jaringan komputer dari kabel hingga nirkabel, serta penerapannya di dunia nyata.</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="science">
+        <img src="https://th.bing.com/th/id/OIP.OqU8APOyd_iqd0GUxMWQ-QHaLW?rs=1&pid=ImgDetMain&cb=idpwebpc2" alt="Ilmu Pengetahuan Alam">
+        <div class="card-body">
+          <button class="button" onclick="toggleSinopsis(this)">Detail</button>
+          <a href="#" class="buy-button">Beli Sekarang</a>
+          <div class="price">Rp94.500</div>
+          <div class="sinopsis">Mengenalkan konsep dasar fisika, kimia, dan biologi dalam bahasa yang mudah dipahami anak-anak dan remaja.</div>
+        </div>
+      </div>
+
+      <div class="card" data-category="komik">
+        <img src="https://cdn.kobo.com/book-images/e354f3eb-d7f8-4339-9c95-f6b1885bad7d/1200/1200/False/naruto-vol-1.jpg" alt="Naruto Volume 1">
+        <div class="card-body">
+          <button class="button" onclick="toggleSinopsis(this)">Detail</button>
+          <a href="#" class="buy-button">Beli Sekarang</a>
+          <div class="price">Rp71.200</div>
+          <div class="sinopsis">Petualangan Naruto Uzumaki, seorang ninja muda yang bercita-cita menjadi Hokage dan dihormati oleh desa.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr>
+
+  <script>
+    function filterCategory(category) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    function searchCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleSinopsis(button) {
+      const sinopsis = button.parentElement.querySelector('.sinopsis');
+      sinopsis.style.display = sinopsis.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
